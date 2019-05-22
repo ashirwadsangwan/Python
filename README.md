@@ -8,4 +8,4 @@ Up to now, some of the programs we have been writing use a procedural programmin
 
 In Python, every value is actually an object. Whether it be a dictionary, a list, or even an integer, they are all objects. Programs manipulate those objects either by performing computation with them or by asking them to perform methods. To be more specific, we say that an object has a **state** and a collection of **methods** that it can perform. (More about methods below.) The state of an object represents those things that the object knows about itself. The state is stored in **instance variables**.
 
-![alt text](https://fopp.umsi.education/runestone/static/fopp/_images/objectpic1.png)
+                            ![alt text](https://fopp.umsi.education/runestone/static/fopp/_images/objectpic1.png)
