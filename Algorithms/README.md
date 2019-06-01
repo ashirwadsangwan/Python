@@ -20,10 +20,13 @@ together in a magical way that results in the product of x and y.
 
 `Step 1: Compute a · c = 56 · 12, which is 672 (as you’re welcome to
 check).
+
 Step 2: Compute b · d = 78 · 34 = 2652.
 The next two steps are still more inscrutable.
+
 Step 3: Compute (a + b) · (c + d) = 134 · 46 = 6164.
-Step 4: Subtract the results of the first two steps from the result
-of the third step: 6164  672  2652 = 2840.
+
+Step 4: Subtract the results of the first two steps from the result of the third step: 6164  672  2652 = 2840.
+
 Step 5: Compute 104 · 672 + 102 · 2840 + 2652 =
 6720000 + 284000 + 2652 = 7006652.`
