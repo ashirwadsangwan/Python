@@ -19,8 +19,7 @@ double-digit numbers a, b, c, and d, and finally collect all the terms
 together in a magical way that results in the product of x and y.
 
 ```
-Step 1: Compute a · c = 56 · 12, which is 672 (as you’re welcome to
-check).
+Step 1: Compute a · c = 56 · 12, which is 672 (as you’re welcome to check).
 
 Step 2: Compute b · d = 78 · 34 = 2652.
 The next two steps are still more inscrutable.
