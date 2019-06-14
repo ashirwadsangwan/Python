@@ -27,6 +27,12 @@ class Employee:
 
         return cls(first, last, pay)
 
+    @staticmethod
+    def isWorkday(day):
+        if day.weekday()==5 or day.weekday()==6:
+            return False
+        return True
+
 
 '''
 You can also use instances instead of class in classmethods and it'll still work.
@@ -35,11 +41,7 @@ You can also use instances instead of class in classmethods and it'll still work
 emp1 = Employee("Ashirwad", "Sangwan", 50000)
 emp2 = Employee("Test","User", 70000)
 
-print(Employee.raise_amount)
-Employee.setRaiseAmount(1.05)
-print(Employee.raise_amount)
+import datetime
+my_date = datetime.date(2019, 6, 14)
 
-str_emp1 = "Joe-Root-40000"
-
-new_emp1 = Employee.fromString(str_emp1)
-print(new_emp1.email)
+print(Employee.isWorkday(my_date))
