@@ -14,7 +14,7 @@ class Employee:
 
     @property
     def fullName(self):
-        return "{} {}".format.(self.first, self.last)
+        return "{} {}".format(self.first, self.last)
 
     @fullName.setter
     def fullName(self, name):
