@@ -10,18 +10,21 @@ def peak(array):
     elif len(array)==1:
         return [0]
     elif len(array)==2:
-        peaks = [0,1]
-        return peaks
+        if array[0]>array[1]:
+            return [0]
+        else:
+            return[1]
 
-    if array[0]>array[1]:
-        peaks.append(0)
+    else:
+        if array[0]>array[1]:
+            peaks.append(0)
 
-    for i in range(1, len(array)-1):
-        if array[i]>array[i-1] and array[i]>array[i+1]:
-            peaks.append(i)
+        for i in range(1, len(array)-1):
+            if array[i]>array[i-1] and array[i]>array[i+1]:
+                peaks.append(i)
 
-    if array[-1]>array[-2]:
-        peaks.append(len(array)-1)
+        if array[-1]>array[-2]:
+            peaks.append(len(array)-1)
 
     return peaks
 
