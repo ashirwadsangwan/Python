@@ -1,3 +1,7 @@
+'''
+This peakFinding algorithm has O(n) complexity.
+'''
+
 def peak(array):
     peaks = []
 
