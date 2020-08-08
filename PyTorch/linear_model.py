@@ -22,7 +22,6 @@ def loss(x, y):
     y_pred = forward(x)
     return (y_pred - y) ** 2
 
-
 # List of weights/Mean square Error (Mse) for each input
 w_list = []
 mse_list = []
