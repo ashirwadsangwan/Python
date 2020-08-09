@@ -1,3 +1,5 @@
+from abc import ABC
+
 import torch
 from torch.autograd import Variable
 
@@ -5,7 +7,7 @@ x_data = Variable(torch.tensor([[1.0], [2.0], [3.0], [4.0]]))
 y_data = Variable(torch.tensor([[2.0], [4.0], [6.0], [8.0]]))
 
 
-class LinearRegression(torch.nn.Module):
+class LinearRegression(torch.nn.Module, ABC):
     def __init__(self):
 
         super(LinearRegression, self).__init__()
