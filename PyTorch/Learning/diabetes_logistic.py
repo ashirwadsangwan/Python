@@ -7,12 +7,13 @@ from torch.utils.data import Dataset, DataLoader
 # y_data = torch.from_numpy(xy[:, [-1]])
 # print(f"X's shape: {x_data.shape} | Y's shape: {y_data.shape}")
 
+
 class DiabetesDataset(Dataset):
     """ Diabetes dataset."""
+
     # Initialize your data, download, etc.
     def __init__(self):
-        xy = np.loadtxt('./data/diabetes.csv.gz',
-                        delimiter=',', dtype=np.float32)
+        xy = np.loadtxt("./data/diabetes.csv.gz", delimiter=",", dtype=np.float32)
         self.len = xy.shape[0]
         self.x_data = torch.from_numpy(xy[:, 0:-1])
         self.y_data = torch.from_numpy(xy[:, [-1]])
@@ -25,10 +26,7 @@ class DiabetesDataset(Dataset):
 
 
 dataset = DiabetesDataset()
-train_loader = DataLoader(dataset=dataset,
-                          batch_size=20,
-                          shuffle=True,
-                          num_workers=0)
+train_loader = DataLoader(dataset=dataset, batch_size=20, shuffle=True, num_workers=0)
 
 
 class DiabetesLogistic(torch.nn.Module):
@@ -42,18 +40,19 @@ class DiabetesLogistic(torch.nn.Module):
         self.sigmoid = torch.nn.Sigmoid()
 
     def forward(self, x):
-        
+
         out1 = self.sigmoid(self.l1(x))
         out2 = self.sigmoid(self.l2(out1))
         pred = self.sigmoid(self.l3(out2))
         return pred
+
 
 model = DiabetesLogistic()
 
 # Construct our loss function and an Optimizer. The call to model.parameters()
 # in the SGD constructor will contain the learnable parameters of the two
 # nn.Linear modules which are members of the model.
-criterion = torch.nn.BCELoss(reduction='mean')
+criterion = torch.nn.BCELoss(reduction="mean")
 optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
 
 # Training loop
@@ -67,7 +66,7 @@ for epoch in range(2):
 
         # Compute and print loss
         loss = criterion(y_pred, labels)
-        print(f'Epoch {epoch + 1} | Batch: {i+1} | Loss: {loss.item():.4f}')
+        print(f"Epoch {epoch + 1} | Batch: {i+1} | Loss: {loss.item():.4f}")
 
         # Zero gradients, perform a backward pass, and update the weights.
         optimizer.zero_grad()

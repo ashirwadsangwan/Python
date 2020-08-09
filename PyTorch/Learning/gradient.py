@@ -22,11 +22,13 @@ def loss(x, y):
     y_pred = forward(x)
     return (y_pred - y) ** 2
 
-def gradient(x,y):
+
+def gradient(x, y):
     return 2 * x * (x * w - y)
 
+
 # Before training
-print("Prediction (before training)",  5, forward(5))
+print("Prediction (before training)", 5, forward(5))
 
 # Training loop
 for epoch in range(10):
@@ -41,4 +43,4 @@ for epoch in range(10):
     print("progress:", epoch, "w=", round(w, 2), "loss=", round(l, 2))
 
 # After training
-print("Predicted score (after training)",  "4 hours of studying: ", forward(5))
+print("Predicted score (after training)", "4 hours of studying: ", forward(5))
