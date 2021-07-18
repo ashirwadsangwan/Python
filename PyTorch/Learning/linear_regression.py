@@ -8,13 +8,14 @@ y_data = Variable(torch.tensor([[2.0], [4.0], [6.0], [8.0]]))
 
 
 class LinearRegression(torch.nn.Module, ABC):
-    def __init__(self,  in_features, out_features):
+    def __init__(self, in_features, out_features):
 
         super(LinearRegression, self).__init__()
         self.in_features = in_features
         self.out_features = out_features
-        self.linear = torch.nn.Linear(self.in_features, self.out_features)  # one input and one output
-
+        self.linear = torch.nn.Linear(
+            self.in_features, self.out_features
+        )  # one input and one output
 
     def forward(self, x):
         return self.linear(x)  # y_pred // linear computes the y_pred for us

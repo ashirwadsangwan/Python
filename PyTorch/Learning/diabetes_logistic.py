@@ -9,7 +9,7 @@ from torch.utils.data import Dataset, DataLoader
 
 
 class DiabetesDataset(Dataset):
-    """ Diabetes dataset."""
+    """Diabetes dataset."""
 
     # Initialize your data, download, etc.
     def __init__(self):

@@ -4,7 +4,8 @@ import random
 import pprint
 import utils
 
-def randomProblem(rows = 10, columns = 10, max = 1000):
+
+def randomProblem(rows=10, columns=10, max=1000):
     """
     Generate a random matrix, with the specified number of rows and
     columns.  Each number is distributed uniformly at random between
@@ -23,6 +24,7 @@ def randomProblem(rows = 10, columns = 10, max = 1000):
 
     return result
 
+
 def main():
     filename = None
     if len(sys.argv) > 1:
@@ -35,7 +37,7 @@ def main():
     maximum = rows * cols * 2
     if len(sys.argv) > 4:
         maximum = int(sys.argv[4])
-    
+
     generated = randomProblem(rows, cols, maximum)
 
     print("Generated a matrix with %d row and %d columns." % (rows, cols))
@@ -47,6 +49,7 @@ def main():
     with open(filename, "w") as outputFile:
         outputFile.write("problemMatrix = ")
         pprint.pprint(generated, outputFile)
+
 
 if __name__ == "__main__":
     main()

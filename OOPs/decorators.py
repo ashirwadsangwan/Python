@@ -1,12 +1,11 @@
 class Employee:
-    
+
     number_of_employees = 0
     raise_amount = 1.04
 
     def __init__(self, first, last):  ## self is the instance here
         self.first = first
         self.last = last
-        
 
     @property
     def email(self):
@@ -28,9 +27,9 @@ class Employee:
         self.first = None
         self.last = None
 
-emp1 = Employee("Ashirwad", "Sangwan")
-emp2 = Employee("Test","User")
 
+emp1 = Employee("Ashirwad", "Sangwan")
+emp2 = Employee("Test", "User")
 
 
 emp1.fullName = "Sheldon Cooper"

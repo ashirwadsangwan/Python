@@ -4,6 +4,7 @@ import trace
 ########################### Class for Peak Problems ############################
 ################################################################################
 
+
 class PeakProblem(object):
     """
     A class representing an instance of a peak-finding problem.
@@ -41,7 +42,7 @@ class PeakProblem(object):
             return 0
         return self.array[self.startRow + r][self.startCol + c]
 
-    def getBetterNeighbor(self, location, trace = None):
+    def getBetterNeighbor(self, location, trace=None):
         """
         If (r, c) has a better neighbor, return the neighbor.  Otherwise,
         return the location (r, c).
@@ -61,24 +62,26 @@ class PeakProblem(object):
         if c + 1 < self.numCol and self.get((r, c + 1)) > self.get(best):
             best = (r, c + 1)
 
-        if not trace is None: trace.getBetterNeighbor(location, best)
+        if not trace is None:
+            trace.getBetterNeighbor(location, best)
 
         return best
-    
-    def getMaximum(self, locations, trace = None):
+
+    def getMaximum(self, locations, trace=None):
         """
         Finds the location in the current problem with the greatest value.
 
         RUNTIME: O(len(locations))
         """
-   
+
         (bestLoc, bestVal) = (None, 0)
-    
+
         for loc in locations:
             if bestLoc is None or self.get(loc) > bestVal:
                 (bestLoc, bestVal) = (loc, self.get(loc))
-    
-        if not trace is None: trace.getMaximum(locations, bestLoc)
+
+        if not trace is None:
+            trace.getMaximum(locations, bestLoc)
 
         return bestLoc
 
@@ -89,7 +92,7 @@ class PeakProblem(object):
         RUNTIME: O(1)
         """
 
-        return (self.getBetterNeighbor(location) == location)
+        return self.getBetterNeighbor(location) == location
 
     def getSubproblem(self, bounds):
         """
@@ -134,9 +137,11 @@ class PeakProblem(object):
         newCol = col + problem.startCol - self.startCol
         return (newRow, newCol)
 
+
 ################################################################################
 ################################ Helper Methods ################################
 ################################################################################
+
 
 def getDimensions(array):
     """
@@ -151,18 +156,19 @@ def getDimensions(array):
 
     rows = len(array)
     cols = 0
-    
+
     for row in array:
         if len(row) > cols:
             cols = len(row)
-    
+
     return (rows, cols)
+
 
 def createProblem(array):
     """
     Constructs an instance of the PeakProblem object for the given array,
     using bounds derived from the array using the getDimensions function.
-   
+
     RUNTIME: O(len(array))
     """
 

@@ -1,5 +1,5 @@
 class Employee:
-    
+
     number_of_employees = 0
     raise_amount = 1.04
 
@@ -7,19 +7,18 @@ class Employee:
         self.first = first
         self.last = last
         self.pay = pay
-        self.email = first+"."+last+"@company.com"
+        self.email = first + "." + last + "@company.com"
 
         Employee.number_of_employees += 1
-    
+
     def fullName(self):
         return "{} {}".format(self.first, self.last)
 
     def applyRaise(self):
-        self.pay  = int(self.pay * self.raise_amount)
+        self.pay = int(self.pay * self.raise_amount)
 
     def __repr__(self):
         return "Employee('{}', '{}', {})".format(self.first, self.last, self.pay)
-
 
     def __str__(self):
         return "{} -> {}".format(self.fullName(), self.email)
@@ -31,9 +30,8 @@ class Employee:
         return len(self.fullName())
 
 
-
 emp1 = Employee("Ashirwad", "Sangwan", 50000)
-emp2 = Employee("Test","User", 70000)
+emp2 = Employee("Test", "User", 70000)
 
 
 print(len(emp1))
