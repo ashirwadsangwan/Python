@@ -11,6 +11,7 @@ from torch import optim
 import torch.nn.functional as F
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+<<<<<<< HEAD
 
 SOS_token = 0
 EOS_token = 1
@@ -158,3 +159,5 @@ class decoderRNN(nn.Module):
 
 # Training
 
+=======
+>>>>>>> b4e570bb31783178d241b9f2a7145343d830b698

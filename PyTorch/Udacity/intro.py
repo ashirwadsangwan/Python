@@ -1,4 +1,38 @@
 import torch
+<<<<<<< HEAD
+=======
+import numpy as np
+import matplotlib.pyplot as plt
+
+def view_classify(img, ps, version="MNIST"):
+    ''' Function for viewing an image and it's predicted classes.
+    '''
+    ps = ps.data.numpy().squeeze()
+
+    fig, (ax1, ax2) = plt.subplots(figsize=(6,9), ncols=2)
+    ax1.imshow(img.resize_(1, 28, 28).numpy().squeeze())
+    ax1.axis('off')
+    ax2.barh(np.arange(10), ps)
+    ax2.set_aspect(0.1)
+    ax2.set_yticks(np.arange(10))
+    if version == "MNIST":
+        ax2.set_yticklabels(np.arange(10))
+    elif version == "Fashion":
+        ax2.set_yticklabels(['T-shirt/top',
+                            'Trouser',
+                            'Pullover',
+                            'Dress',
+                            'Coat',
+                            'Sandal',
+                            'Shirt',
+                            'Sneaker',
+                            'Bag',
+                            'Ankle Boot'], size='small')
+    ax2.set_title('Class Probability')
+    ax2.set_xlim(0, 1.1)
+
+
+>>>>>>> b4e570bb31783178d241b9f2a7145343d830b698
 
 
 def activation(x):
@@ -10,6 +44,18 @@ def activation(x):
     """
     return 1 / (1 + torch.exp(-x))
 
+<<<<<<< HEAD
+=======
+def softmax(x):
+    """Softmax activation function
+
+    Parameters
+    ----------
+    x : torch.tensor
+    """
+    return torch.exp(x) / torch.sum(torch.exp(x), dim=1).view(-1, 1)
+
+>>>>>>> b4e570bb31783178d241b9f2a7145343d830b698
 
 torch.manual_seed(17)
 features = torch.randn((1, 5))
@@ -20,11 +66,22 @@ bias = torch.randn((1, 1))
 # forward we'll start using normal data.
 
 output = activation(torch.sum(features * weights) + bias)  # by using torch.sum
+<<<<<<< HEAD
 print(output)
 output1 = activation(torch.mm(features, weights.view(5, 1)) + bias)
 print(output1)
 
 ## Using multi-layer network
+=======
+# print(output)
+output1 = activation(torch.mm(features, weights.view(5, 1)) + bias)  # changing the weights to be a column vector
+# print(output1)
+
+# we can use weights.resize_ method this "_" at the end indicates the operation is happening in inplace. The problem with
+# resize method is that if you do not use inplace, you have to make a copy of the tensor.
+
+## Using multi-layer network 
+>>>>>>> b4e570bb31783178d241b9f2a7145343d830b698
 # torch.manual_seed(7)
 features = torch.randn(1, 3)
 n_input = features.shape[1]
@@ -38,3 +95,9 @@ B2 = torch.randn(1, n_output)
 h = activation(torch.mm(features, W1) + B1)
 output = activation(torch.mm(h, W2) + B2)
 print(output)
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> b4e570bb31783178d241b9f2a7145343d830b698
